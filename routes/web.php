@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/foo', function() {
+    return view('hello');
+});
+
+Route::resource('photos', 'PhotoController');
+
+Route::get('/name', function () {
+    $name = request('name');
+    return view('name', ['name' => $name]);
+});
+
+Route::get('/posts/{post}', 'PostsController@show');
